@@ -13,7 +13,7 @@ namespace SiemensWorkAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    [Authorize("ClientIdPolicy")]
     public class WorksController : ControllerBase
     {
         private readonly SiemensWorkAPIContext _context;

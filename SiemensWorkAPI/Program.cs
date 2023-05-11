@@ -22,6 +22,10 @@ builder.Services.AddAuthentication("Bearer")
             ValidateAudience = false
         };
     });
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("ClientIdPolicy", policy => policy.RequireClaim("client_id", "siemensWorksClient"));
+});
 var app = builder.Build();
 SeedDataBase(app);
 
