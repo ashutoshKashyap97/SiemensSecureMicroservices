@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using SiemensWorks.Client.APIServices;
 using SiemensWorks.Client.Models;
 
 namespace SiemensWorks.Client.Controllers
 {
+    [Authorize]
     public class WorksController : Controller
     {
         private readonly IWorkApiServices _workApiServices;
@@ -18,9 +23,21 @@ namespace SiemensWorks.Client.Controllers
             _workApiServices = workApiServices;
         }
 
+        public async Task LogTokenAndClaims()
+        {
+            var identityTocken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.IdToken);
+            Debug.WriteLine($"Identity token : {identityTocken}");
+
+            foreach (var claim in User.Claims)
+            {
+                Debug.WriteLine($"Claim Type : {claim.Type} - Claim Value: {claim.Value}"); 
+            }
+        }
+
         // GET: Works
         public async Task<IActionResult> Index()
         {
+              LogTokenAndClaims();
               return View(await _workApiServices.GetWorks());
         }
 
