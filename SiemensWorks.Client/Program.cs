@@ -16,7 +16,7 @@ builder.Services.AddAuthentication(options =>
 .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, options =>
 {
     options.Authority = "https://localhost:5200";
-    options.ClientId = "works_mvc_clients";
+    options.ClientId = "siemensWorks_mvc_client";
     options.ClientSecret = "secret";
     options.ResponseType = "code";
     options.Scope.Add("openid");
