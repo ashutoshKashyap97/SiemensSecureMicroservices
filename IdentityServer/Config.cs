@@ -74,6 +74,17 @@ namespace IdentityServer
                         new Claim(JwtClaimTypes.GivenName, "Ashu"),
                         new Claim(JwtClaimTypes.FamilyName, "Kashyap")
                     }
+                },
+                new TestUser
+                {
+                    SubjectId = "5BE86359-073C-434B-AD2D-A3932222DABA",
+                    Username = "Rohan",
+                    Password = "1234",
+                    Claims = new List<Claim>
+                    {
+                        new Claim(JwtClaimTypes.GivenName, "Rohan"),
+                        new Claim(JwtClaimTypes.FamilyName, "Shetti")
+                    }
                 }
             };
 
