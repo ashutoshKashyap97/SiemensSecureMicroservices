@@ -27,8 +27,8 @@ namespace SiemensWorks.Client.Controllers
 
         public async Task LogTokenAndClaims()
         {
-            var identityTocken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.IdToken);
-            Debug.WriteLine($"Identity token : {identityTocken}");
+            var identityToken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.IdToken);
+            Debug.WriteLine($"Identity token : {identityToken}");
 
             foreach (var claim in User.Claims)
             {

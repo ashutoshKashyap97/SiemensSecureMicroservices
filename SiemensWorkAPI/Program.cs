@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
     {
-        options.Authority = "https://localhost:7214";
+        options.Authority = "https://localhost:5200";
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateAudience = false
@@ -47,6 +47,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();

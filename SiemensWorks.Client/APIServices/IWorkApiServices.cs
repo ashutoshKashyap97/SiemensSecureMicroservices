@@ -8,6 +8,6 @@ namespace SiemensWorks.Client.APIServices
         Task<Work> GetWork(string id);
         Task<Work> CreateWork (Work work);
         Task<Work> UpdateWork (Work work);
-        Task DeleteWork (string id);
+        Task DeleteWork (int id);
     }
 }
