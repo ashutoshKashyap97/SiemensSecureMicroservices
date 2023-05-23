@@ -7,18 +7,18 @@ import { Component,OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'hello';
-  works : any;
+  // title = 'hello';
+  // works : any;
 
   constructor(private http: HttpClient){
 
   }
   ngOnInit(): void {
-    this.http.get('https://localhost:7092/api/works').subscribe({
-      next: response => this.works = response,
-      error : error=> console.log(error),
-      complete: () => console.log('Request complete') 
-    })
+    // this.http.get('https://localhost:7092/api/works').subscribe({
+    //   next: response => this.works = response,
+    //   error : error=> console.log(error),
+    //   complete: () => console.log('Request complete') 
+    // })
   }
   
 }

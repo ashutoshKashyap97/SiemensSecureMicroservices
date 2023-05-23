@@ -40,7 +40,7 @@ namespace SiemensWorkAPI.Data
                     new Work
                     {
                         Id = 4,
-                        ProcessName = "Meatal Casting",
+                        ProcessName = "Metal Casting",
                         ProcessDescription = "Pour the melted metal into the sand cast",
                         CreatedDate = DateTime.Now,
                         Owner = "Pushpa"
